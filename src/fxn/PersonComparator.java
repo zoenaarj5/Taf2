@@ -48,6 +48,11 @@ public class PersonComparator implements EntityComparator<Person>{
 						return false;
 					}
 					break;
+				case PERSON_USER_NAME:
+					if(!matcher.match(p1.getUserName(), p2.getUserName(), matchingMode, false)) {
+						return false;
+					}
+					break;
 				default:
 					continue;
 				
@@ -82,6 +87,11 @@ public class PersonComparator implements EntityComparator<Person>{
 					break;
 				case PERSON_STATUS:
 					if(matcher.match(p1.getStatus().toString(), p2.getStatus().toString(), matchingMode,false)) {
+						return true;
+					}
+					break;
+				case PERSON_USER_NAME:
+					if(matcher.match(p1.getUserName(), p2.getUserName(), matchingMode, false)) {
 						return true;
 					}
 					break;
