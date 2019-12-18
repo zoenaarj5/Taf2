@@ -14,7 +14,7 @@ public class Person {
 	private Person() {
 		super();
 	}
-	enum Status{
+	public enum Status{
 		AVAILABLE,BUSY,OPEN
 	}
 	private int id;

@@ -1,0 +1,10 @@
+package search;
+
+public enum SearchField {
+	PERSON_ID,
+	PERSON_EMAIL,
+	PERSON_PASSWORD,
+	PERSON_FIRST_NAME,
+	PERSON_LAST_NAME,
+	PERSON_STATUS
+}
