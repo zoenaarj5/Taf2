@@ -17,7 +17,7 @@ public class StringMatcher implements Matcher<String>{
 		switch(smm) {
 			case LIKE:
 				System.out.println(s1+" matches "+s2+"? Comparing in LIKE mode");
-				return s12Comp.contains(s2)||s22Comp.contains(s1);
+				return s12Comp.contains(s22Comp)||s22Comp.contains(s12Comp);
 			default:
 				System.out.println(s1+" matches "+s2+"? Comparing in SAME mode");
 				return s12Comp.equals(s22Comp);

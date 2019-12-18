@@ -2,6 +2,7 @@ package search;
 
 public enum SearchField {
 	PERSON_ID,
+	PERSON_USER_NAME,
 	PERSON_EMAIL,
 	PERSON_PASSWORD,
 	PERSON_FIRST_NAME,

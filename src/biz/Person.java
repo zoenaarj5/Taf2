@@ -1,7 +1,7 @@
 package biz;
 
 public class Person {
-	public Person createPerson(String userName,String email,String password,String firstName,String lastName,Status status) {
+	public static Person createPerson(String userName,String email,String password,String firstName,String lastName,Status status) {
 		Person p=new Person();
 		p.setUserName(userName);
 		p.setEmail(email);

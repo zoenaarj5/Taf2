@@ -6,6 +6,10 @@ import search.SearchMatchingMode;
 import search.SearchMode;
 
 public class PersonComparator implements EntityComparator<Person>{
+	private static PersonComparator uniqueInstance=new PersonComparator();
+	private PersonComparator() {
+		super();
+	}
 	@Override
 	public boolean compare(Person p1, Person p2, SearchField[] fields, SearchMode mode,
 			SearchMatchingMode matchingMode) {
@@ -91,6 +95,9 @@ public class PersonComparator implements EntityComparator<Person>{
 			}
 		}
 		return mode==SearchMode.AND;
+	}
+	public static PersonComparator getUniqueInstance() {
+		return uniqueInstance;
 	}
 
 }
