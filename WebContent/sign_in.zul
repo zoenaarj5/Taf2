@@ -1,0 +1,31 @@
+<?page title="Sign-in page" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="People" border="normal" width="100%" viewModel="@id('kavuna') @init('vmd.SignInViewModel')">
+	<textbox value="@load('kavuna.login')"/>
+	<textbox value="@load('kavuna.password')" type="password"/>
+	<label value="@bind('kavuna.checkMessage')"/>
+	<button label="Go" onClick="@command('signIn')"/>
+    <hbox style="margin-top:20px" visible="@bind(not empty kavuna.loggedUser)">
+        <vbox>
+            <hlayout>
+                ID : <label value="@bind(kavuna.loggedUser.id)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Login : <label value="@bind(kavuna.loggedUser.userName)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Email : <label value="@bind(kavuna.loggedUser.email)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                First name : <label value="@bind(kavuna.loggedUser.firstName)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+                Last name : <label value="@bind(kavuna.loggedUser.lastName)" style="font-weight:bold"/>
+            </hlayout>
+            <hlayout>
+	            Status :<label value="@bind(kavuna.loggedUser.status)" />
+            </hlayout>
+        </vbox>
+    </hbox>
+</window>
+</zk>

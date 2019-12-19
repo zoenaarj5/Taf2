@@ -1,11 +1,8 @@
 package search;
 
-public enum SearchField {
-	PERSON_ID,
-	PERSON_USER_NAME,
-	PERSON_EMAIL,
-	PERSON_PASSWORD,
-	PERSON_FIRST_NAME,
-	PERSON_LAST_NAME,
-	PERSON_STATUS
+import java.util.Map;
+
+public interface SearchField<T> {
+	boolean matchFields(T t1,T t2,SearchMatchingMode matchingMode,boolean caseSensitive);
+	boolean matchElement(T t,Object value,SearchMatchingMode matchingMode,boolean caseSensitive);
 }

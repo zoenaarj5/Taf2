@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import biz.Person;
 import fxn.EntityComparator;
 import fxn.PersonComparator;
+import search.PersonSearchField;
 import search.SearchField;
 import search.SearchMatchingMode;
 import search.SearchMode;
@@ -23,23 +24,23 @@ class EntityComparatorTester {
 		Person admiral=Person.createPerson("dr50", "davidrobinson@spurs.com", "David1", "David", "ROBINSON", Person.Status.BUSY);
 		Person robin=Person.createPerson("rob00", "imaginary@nba.com", "Imaginary1", "Imaginary", "Robin", Person.Status.OPEN);
 		assertFalse("User names matched while different, despite SAME matching mode",
-				comp.compare(mj, magic, new SearchField[] {SearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.SAME));
+				comp.compare(mj, magic, new PersonSearchField[] {PersonSearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.SAME,false));
 		assertTrue("Second user name containing first one not matched despite LIKE matching mode",
-				comp.compare(mj, magic, new SearchField[] {SearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.LIKE));
+				comp.compare(mj, magic, new PersonSearchField[] {PersonSearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.LIKE,false));
 		assertTrue("Second user name containing first one not matched despite LIKE matching mode",
-				comp.compare(mj, magic, new SearchField[] {SearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.LIKE));
+				comp.compare(mj, magic, new PersonSearchField[] {PersonSearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.LIKE,false));
 		assertTrue("Second user name contained in first one not matched despite LIKE matching mode",
-				comp.compare(magic, mj, new SearchField[] {SearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.LIKE));
+				comp.compare(magic, mj, new PersonSearchField[] {PersonSearchField.PERSON_USER_NAME}, SearchMode.AND, SearchMatchingMode.LIKE,false));
 		assertTrue("Second user's last name not matched",
-				comp.compare(nate, admiral, new SearchField[] {SearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.SAME));
+				comp.compare(nate, admiral, new PersonSearchField[] {PersonSearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.SAME,false));
 		assertTrue("Second user's last name contained in first user's, matched despite LIKE matching mode",
-				comp.compare(nate, robin, new SearchField[] {SearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.LIKE));
+				comp.compare(nate, robin, new PersonSearchField[] {PersonSearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.LIKE,false));
 		assertFalse("Second user's last name contained in first user's, not matched despite SAME matching mode",
-				comp.compare(nate, robin, new SearchField[] {SearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.SAME));
+				comp.compare(nate, robin, new PersonSearchField[] {PersonSearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.SAME,false));
 		assertTrue("Second user's last name containing first user's, matched despite LIKE matching mode",
-				comp.compare(robin, nate, new SearchField[] {SearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.LIKE));
+				comp.compare(robin, nate, new PersonSearchField[] {PersonSearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.LIKE,false));
 		assertFalse("Second user's last name containing first user's, not matched despite SAME matching mode",
-				comp.compare(nate, robin, new SearchField[] {SearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.SAME));
+				comp.compare(nate, robin, new PersonSearchField[] {PersonSearchField.PERSON_LAST_NAME}, SearchMode.AND, SearchMatchingMode.SAME,false));
 		
 	}
 

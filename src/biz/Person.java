@@ -1,6 +1,7 @@
 package biz;
 
 public class Person {
+	private static int nextId=1;
 	public static Person createPerson(String userName,String email,String password,String firstName,String lastName,Status status) {
 		Person p=new Person();
 		p.setUserName(userName);
@@ -13,6 +14,7 @@ public class Person {
 	}
 	private Person() {
 		super();
+		this.id=nextId++;
 	}
 	public enum Status{
 		AVAILABLE,BUSY,OPEN
