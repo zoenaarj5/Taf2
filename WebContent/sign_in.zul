@@ -1,9 +1,9 @@
 <?page title="Sign-in page" contentType="text/html;charset=UTF-8"?>
 <zk>
 <window title="People" border="normal" width="100%" viewModel="@id('kavuna') @init('vmd.SignInViewModel')">
-	<textbox value="@load('kavuna.login')"/>
-	<textbox value="@load('kavuna.password')" type="password"/>
-	<label value="@bind('kavuna.checkMessage')"/>
+	<textbox value="@save(kavuna.login)"/>
+	<textbox value="@save(kavuna.password)" type="password"/>
+	<label value="@bind(kavuna.checkMessage)"/>
 	<button label="Go" onClick="@command('signIn')"/>
     <hbox style="margin-top:20px" visible="@bind(not empty kavuna.loggedUser)">
         <vbox>

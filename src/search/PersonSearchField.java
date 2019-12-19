@@ -49,7 +49,7 @@ public enum PersonSearchField implements SearchField<Person>{
 			case PERSON_LAST_NAME:
 				return StringMatcher.getUniqueInstance().match(p.getLastName(), value.toString(), matchingMode, caseSensitive);
 			case PERSON_PASSWORD:
-				return StringMatcher.getUniqueInstance().match(p.getPassword(), value.toString(), matchingMode, caseSensitive);
+				return StringMatcher.getUniqueInstance().match(p.getPassword(), value.toString(), SearchMatchingMode.SAME, true);
 			case PERSON_STATUS:
 				return p.getStatus().equals(value);
 			case PERSON_USER_NAME:

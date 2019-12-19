@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.NotifyChange;
 
 import biz.Person;
 import dax.PeopleAx;
@@ -49,9 +50,11 @@ public class SignInViewModel {
 		this.checkMessage = checkMessage;
 	}
 	@Command
+	@NotifyChange({"loggedUser","checkMessage"})
 	public void signIn() {
 		Map<SearchField<Person>,Object> criteria=new HashMap<>();
 		criteria.put(PersonSearchField.PERSON_USER_NAME, login);
+		criteria.put(PersonSearchField.PERSON_PASSWORD, password);
 		List<Person> res=PeopleAx.getUniqueInstance().fetch(criteria, SearchMode.AND, SearchMatchingMode.SAME);
 		if(res.isEmpty()) {
 			this.setLoggedUser(null);
